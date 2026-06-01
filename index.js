@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const port = 3000
 const mongoose = require('mongoose');
-const engine = require('ejs-mate')
+const ejsMate = require('ejs-mate')
 const methodOverride = require('method-override')
 
 const Auto = require('./models/auto')
