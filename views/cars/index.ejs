@@ -1,10 +1,22 @@
 <% layout('/layouts/boilerplate')%>
-    <h1>ALL CARS</h1>
-    <ul>
-        <% for(let car of autos){ %>
-           
-            <li><a href="/cars/<%= car._id %>"><%= car.name %></a></li>
 
+
+<div class="container">
+    <div class="row">
+        <% for(let car of autos){ %>
+        <div class="col-lg-4 col-sm-6 col-12 mb-4">
+            <div class="card h-100" >
+                <img src="<%= car.image %>" class="card-img-top" alt="Car image" style="height: 230px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= car.name %></h5>
+                    <p class="card-text"><%= car.brand %></p>
+                    <p class="card-text"><%= car.country %></p>
+                    <p class="card-text"><%= (car.price * 1000).toLocaleString() %> CR</p>
+                    <p class="card-text"><%= car.carClass %></p>
+                    <a href="/cars/<%= car._id %>" class="btn btn-primary">View Car</a>
+                </div>
+            </div>
+        </div>
         <% } %>
-    </ul>
-    <a href="/cars/new">New Car</a>
+    </div>
+</div>
