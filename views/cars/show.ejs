@@ -1,14 +1,32 @@
 <% layout('/layouts/boilerplate')%>
-<h1><%= car.name %></h1>
-<ul>
-  <li><%= car.brand %></li>
-  <li><%= car.price %></li>
-  <li><%= car.carClass %></li>
-  <li><%= car.country %></li>
-  <li><%= car.image %></li>
-</ul>
-<a href="/cars">All Cars</a>
-<a href="/cars/<%= car._id %>/edit">Edit</a>
-<form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
-  <button>Delete</button>
-</form>
+<div class="row">
+  <div class="row">
+    <div class="card">
+      <img src="<%= car.image %>" class="card-img-top" alt="car image" />
+      <div class="card-body">
+        <h5 class="card-title"><%= car.name %></h5>
+        <p class="card-text"></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= car.country %></li>
+        <li class="list-group-item"><%= car.carClass %></li>
+        <li class="list-group-item"><%= car.brand %></li>
+        <li class="list-group-item">
+          <%= (car.price * 1000).toLocaleString() %> CR
+        </li>
+      </ul>
+      <div class="card-body">
+        <a href="/cars/<%= car._id %>/edit" class="card-link btn btn-info"
+          >Edit</a
+        >
+        <form
+          class="d-inline"
+          action="/cars/<%= car._id %>?_method=DELETE"
+          method="POST"
+        >
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
