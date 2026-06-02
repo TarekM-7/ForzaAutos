@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Show</title>
-  </head>
-  <body>
-    <h1><%= car.name %></h1>
-    <ul>
-      <li><%= car.brand %></li>
-      <li><%= car.price %></li>
-      <li><%= car.carClass %></li>
-      <li><%= car.country %></li>
-      <li><%= car.image %></li>
-    </ul>
-    <a href="/cars">All Cars</a>
-    <a href="/cars/<%= car._id %>/edit">Edit</a>
-    <form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
-      <button>Delete</button>
-    </form>
-  </body>
-</html>
+<% layout('/layouts/boilerplate')%>
+<h1><%= car.name %></h1>
+<ul>
+  <li><%= car.brand %></li>
+  <li><%= car.price %></li>
+  <li><%= car.carClass %></li>
+  <li><%= car.country %></li>
+  <li><%= car.image %></li>
+</ul>
+<a href="/cars">All Cars</a>
+<a href="/cars/<%= car._id %>/edit">Edit</a>
+<form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
+  <button>Delete</button>
+</form>

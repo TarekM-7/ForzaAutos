@@ -1,63 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Car</title>
-  </head>
-  <body>
-    <h1>Edit Car</h1>
-    <form action="/cars/<%= car._id %>?_method=PUT" method="POST">
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Car Name"
-        value="<%= car.name %>"
-      />
-      <label for="brand">Brand:</label>
-      <input
-        type="text"
-        name="brand"
-        id="brand"
-        placeholder="Car Brand"
-        value="<%= car.brand %>"
-      />
-      <label for="price">Price: (CR)</label>
-      <input
-        type="number"
-        name="price"
-        id="price"
-        placeholder="Car Price"
-        value="<%= car.price %>"
-      />
-      <label for="carClass">Car Class:</label>
-      <input
-        type="number"
-        name="carClass"
-        id="carClass"
-        placeholder="Car Class(Number)"
-        value="<%= car.carClass %>"
-      />
-      <label for="country">Country:</label>
-      <input
-        type="text"
-        name="country"
-        id="country"
-        placeholder="Brand Country"
-        value="<%= car.country %>"
-      />
-      <label for="image">Image URL:</label>
-      <input
-        type="text"
-        name="image"
-        id="image"
-        placeholder="Image URL"
-        value="<%= car.image %>"
-      />
-      <button>Submit</button>
-    </form>
-    <a href="/cars/<%= car._id %>">Cancel</a>
-  </body>
-</html>
+<% layout('/layouts/boilerplate')%>
+<body>
+  <h1>Edit Car</h1>
+  <form action="/cars/<%= car._id %>?_method=PUT" method="POST">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Car Name"
+      value="<%= car.name %>"
+    />
+    <label for="brand">Brand:</label>
+    <input
+      type="text"
+      name="brand"
+      id="brand"
+      placeholder="Car Brand"
+      value="<%= car.brand %>"
+    />
+    <label for="price">Price: (CR)</label>
+    <input
+      type="number"
+      name="price"
+      id="price"
+      placeholder="Car Price"
+      value="<%= car.price %>"
+    />
+    <label for="carClass">Car Class:</label>
+    <input
+      type="number"
+      name="carClass"
+      id="carClass"
+      placeholder="Car Class(Number)"
+      value="<%= car.carClass %>"
+    />
+    <label for="country">Country:</label>
+    <input
+      type="text"
+      name="country"
+      id="country"
+      placeholder="Brand Country"
+      value="<%= car.country %>"
+    />
+    <label for="image">Image URL:</label>
+    <input
+      type="text"
+      name="image"
+      id="image"
+      placeholder="Image URL"
+      value="<%= car.image %>"
+    />
+    <button>Submit</button>
+  </form>
+  <a href="/cars/<%= car._id %>">Cancel</a>
+</body>
