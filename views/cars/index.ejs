@@ -6,7 +6,7 @@
         <% for(let car of autos){ %>
         <div class="col-lg-4 col-sm-6 col-12 mb-4">
             <div class="card h-100" >
-                <img src="<%= car.image %>" class="card-img-top" alt="Car image" style="height: 230px; object-fit: cover;">
+                <a href="/cars/<%= car._id %>"><img src="<%= car.image %>" class="card-img-top" alt="Car image" style="height: 230px; object-fit: cover;"></a>
                 <div class="card-body">
                     <h5 class="card-title"><%= car.name %></h5>
                     <p class="card-text"><%= car.brand %></p>
