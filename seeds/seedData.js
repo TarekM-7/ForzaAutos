@@ -13,7 +13,7 @@ module.exports.seedAutos = [
         price: 45,
         carClass: 596,
         country: 'Japan',
-        image: 'https://static.wikia.nocookie.net/forzamotorsport/images/5/5c/FH6_Toyota_GR_Corolla.png/revision/latest?cb=20260516181438'
+        image: 'https://i.blogs.es/41ee2a/20220401_01_08_s/840_560.jpeg'
     },
     {
         name: '2016 Audi R8 V10 plus',
@@ -21,6 +21,102 @@ module.exports.seedAutos = [
         price: 242,
         carClass: 731,
         country: 'Germany',
-        image: 'https://static.wikia.nocookie.net/forzamotorsport/images/9/91/FM23_Audi_R8_V10_Plus.png/revision/latest/scale-to-width/360?cb=20250519034450'
+        image: 'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/15q4/662479/2016-audi-r8-v10-plus-euro-spec-test-review-car-and-driver-photo-663404-s-original.jpg'
+    },
+    {
+        name: '2025 Ferrari F80',
+        brand: 'Ferrari',
+        price: 1684,
+        carClass: 920,
+        country: 'Italy',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2013 Audi RS 4 Avant',
+        brand: 'Audi',
+        price: 487,
+        carClass: 607,
+        country: 'Germany',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2022 BMW M5 CS',
+        brand: 'BMW',
+        price: 842,
+        carClass: 731,
+        country: 'Germany',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2018 Porsche Cayenne Turbo',
+        brand: 'Porsche',
+        price: 294,
+        carClass: 638,
+        country: 'Germany',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2024 Chevrolet Corvette E-Ray',
+        brand: 'Chevrolet',
+        price: 915,
+        carClass: 737,
+        country: 'USA',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '1984 Audi Sport quattro',
+        brand: 'Audi',
+        price: 158,
+        carClass: 526,
+        country: 'Germany',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2019 Ferrari F8 Tributo',
+        brand: 'Ferrari',
+        price: 723,
+        carClass: 802,
+        country: 'Italy',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2021 Porsche Mission R',
+        brand: 'Porsche',
+        price: 1248,
+        carClass: 865,
+        country: 'Germany',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2022 Aston Martin Valkyrie AMR Pro',
+        brand: 'Aston Martin',
+        price: 1937,
+        carClass: 989,
+        country: 'UK',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2023 BMW M2 Forza Edition',
+        brand: 'BMW',
+        price: 376,
+        carClass: 700,
+        country: 'Germany',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2017 Ferrari J50',
+        brand: 'Ferrari',
+        price: 657,
+        carClass: 772,
+        country: 'Italy',
+        image: 'https://example.com/car-image.jpg'
+    },
+    {
+        name: '2019 Porsche 911 Carrera S',
+        brand: 'Porsche',
+        price: 531,
+        carClass: 714,
+        country: 'Germany',
+        image: 'https://example.com/car-image.jpg'
     }
 ]
