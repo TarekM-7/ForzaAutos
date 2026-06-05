@@ -36,10 +36,14 @@ app.get('/cars/new', (req, res) => {
 })
 
 app.post('/cars', async (req, res) => {
-    const newAuto = new Auto(req.body);
-    await newAuto.save();
-    console.log(newAuto)
-    res.redirect(`/cars/${newAuto._id}`)
+    try{
+        const newAuto = new Auto(req.body);
+        await newAuto.save();
+        console.log(newAuto)
+        res.redirect(`/cars/${newAuto._id}`)
+    }catch (e){
+        next(e)
+    }
 })
 
 app.get('/cars/:id', async (req, res) => {
@@ -64,6 +68,10 @@ app.delete('/cars/:id', async (req, res) => {
     const { id } = req.params;
     const deletedAuto = await Auto.findByIdAndDelete(id);
     res.redirect('/cars')
+})
+
+app.use((err, req, res, next) => {
+    res.send('ERROR! Something went wrong')
 })
 
 app.listen(port, () => {
