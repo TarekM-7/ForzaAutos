@@ -4,6 +4,7 @@ const path = require('path');
 const port = 3000
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate')
+const catchAsync = require('./utils/catchAsync')
 const methodOverride = require('method-override')
 
 const Auto = require('./models/auto')
@@ -35,16 +36,12 @@ app.get('/cars/new', (req, res) => {
     res.render('cars/new')
 })
 
-app.post('/cars', async (req, res) => {
-    try{
-        const newAuto = new Auto(req.body);
-        await newAuto.save();
-        console.log(newAuto)
-        res.redirect(`/cars/${newAuto._id}`)
-    }catch (e){
-        next(e)
-    }
-})
+app.post('/cars', catchAsync(async (req, res) => {
+    const newAuto = new Auto(req.body);
+    await newAuto.save();
+    console.log(newAuto)
+    res.redirect(`/cars/${newAuto._id}`)
+}));
 
 app.get('/cars/:id', async (req, res) => {
     const { id } = req.params;
