@@ -43,29 +43,29 @@ app.post('/cars', catchAsync(async (req, res) => {
     res.redirect(`/cars/${newAuto._id}`)
 }));
 
-app.get('/cars/:id', async (req, res) => {
+app.get('/cars/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const car = await Auto.findById(id)
     res.render('cars/show', { car })
-})
+}));
 
-app.get('/cars/:id/edit', async (req, res) => {
+app.get('/cars/:id/edit', catchAsync(async (req, res) => {
     const { id } = req.params;
     const car = await Auto.findById(id)
     res.render('cars/edit', { car })
-})
+}));
 
-app.put('/cars/:id', async (req, res) => {
+app.put('/cars/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const car = await Auto.findByIdAndUpdate(id, req.body, { runValidators: true, returnDocument: 'after' });
     res.redirect(`/cars/${car._id}`)
-})
+}));
 
-app.delete('/cars/:id', async (req, res) => {
+app.delete('/cars/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const deletedAuto = await Auto.findByIdAndDelete(id);
     res.redirect('/cars')
-})
+}));
 
 app.use((err, req, res, next) => {
     res.send('ERROR! Something went wrong')
