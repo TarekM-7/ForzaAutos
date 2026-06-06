@@ -5,6 +5,7 @@ const port = 3000
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const Joi = require('joi');
+const { autoSchema } = require('./schemas')
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
@@ -25,6 +26,16 @@ app.engine('ejs', ejsMate);
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
+const validateAuto = (req, res, next) => {
+    const { error } = autoSchema.validate(req.body)
+    if(error){
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400);
+    } else {
+        next()
+    }
+}
+
 app.get('/', (req, res) => {
     res.redirect('/cars');
 })
@@ -38,8 +49,7 @@ app.get('/cars/new', (req, res) => {
     res.render('cars/new')
 })
 
-app.post('/cars', catchAsync(async (req, res) => {
-    if(!req.body.Auto) throw new ExpressError('Invalid Car Data', 400);
+app.post('/cars', validateAuto, catchAsync(async (req, res) => {
     const newAuto = new Auto(req.body);
     await newAuto.save();
     console.log(newAuto)
@@ -58,7 +68,7 @@ app.get('/cars/:id/edit', catchAsync(async (req, res) => {
     res.render('cars/edit', { car })
 }));
 
-app.put('/cars/:id', catchAsync(async (req, res) => {
+app.put('/cars/:id', validateAuto, catchAsync(async (req, res) => {
     const { id } = req.params;
     const car = await Auto.findByIdAndUpdate(id, req.body, { runValidators: true, returnDocument: 'after' });
     res.redirect(`/cars/${car._id}`)
