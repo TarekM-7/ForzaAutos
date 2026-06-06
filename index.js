@@ -3,10 +3,11 @@ const app = express();
 const path = require('path');
 const port = 3000
 const mongoose = require('mongoose');
-const ejsMate = require('ejs-mate')
-const catchAsync = require('./utils/catchAsync')
-const ExpressError = require('./utils/ExpressError')
-const methodOverride = require('method-override')
+const ejsMate = require('ejs-mate');
+const Joi = require('joi');
+const catchAsync = require('./utils/catchAsync');
+const ExpressError = require('./utils/ExpressError');
+const methodOverride = require('method-override');
 
 const Auto = require('./models/auto')
 
