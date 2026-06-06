@@ -5,6 +5,7 @@ const port = 3000
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate')
 const catchAsync = require('./utils/catchAsync')
+const ExpressError = require('./utils/ExpressError')
 const methodOverride = require('method-override')
 
 const Auto = require('./models/auto')
@@ -37,6 +38,7 @@ app.get('/cars/new', (req, res) => {
 })
 
 app.post('/cars', catchAsync(async (req, res) => {
+    if(!req.body.Auto) throw new ExpressError('Invalid Car Data', 400);
     const newAuto = new Auto(req.body);
     await newAuto.save();
     console.log(newAuto)
@@ -67,8 +69,13 @@ app.delete('/cars/:id', catchAsync(async (req, res) => {
     res.redirect('/cars')
 }));
 
+app.all('/{*path}', (req, res, next) => {
+    next(new ExpressError('Page not Found', 404))
+})
+
 app.use((err, req, res, next) => {
-    res.send('ERROR! Something went wrong')
+    const { statusCode = 500, message='Something went wrong' } = err;
+    res.status(statusCode).send(message);
 })
 
 app.listen(port, () => {
