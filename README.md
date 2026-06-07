@@ -41,27 +41,35 @@ Throughout the entire process the project was managed with Git, committing chang
 ## What I Learned
 
 ### 🗄️ MongoDB & Mongoose
+
 How to connect to a local MongoDB database, define schemas with types, validators (`required`, `min`, `max`), and create, read, update, and delete documents using Mongoose methods like `find()`, `findById()`, `findByIdAndUpdate()`, and `findByIdAndDelete()`.
 
 ### 🌱 Database Seeding
+
 How to write a `seeds.js` script to wipe and repopulate the database with `deleteMany()` and `insertMany()`, and why closing the Mongoose connection at the end of a seed script is important.
 
 ### 🛣️ Express Routing
+
 How Express matches routes in order, why route order matters (e.g. `/cars/new` must come before `/cars/:id`), and how to use `method-override` to send PUT and DELETE requests from HTML forms.
 
 ### 🎨 EJS & ejs-mate
+
 How to render dynamic content with EJS, and how to use `ejs-mate` to define a single boilerplate layout shared across all views and avoiding repetition of the HTML structure.
 
 ### ✅ Server-side Validation with Joi
+
 How to define a validation schema with Joi, extract it into a separate `schemas.js` file, and use it inside a reusable `validateAuto` middleware applied to multiple routes.
 
 ### 🚨 Error Handling
+
 How to create a custom `ExpressError` class that extends the built-in `Error`, a `catchAsync` utility wrapper to avoid repeating `try/catch` in every async route, and a global error-handling middleware to render a friendly error page.
 
 ### 🎨 Bootstrap 5
+
 How to build a responsive card layout using Bootstrap's grid system (`col-lg-4 col-sm-6 col-12`), use `h-100` and `object-fit: cover` to make cards uniform in height, and build clean forms with Bootstrap's form components.
 
 ### 🗂️ Project Structure
+
 How to organize a full-stack Node.js project into separate folders and files by responsibility and keeping the codebase clean and easy to navigate:
 
 - **models/** — Mongoose schemas and models
@@ -72,7 +80,8 @@ How to organize a full-stack Node.js project into separate folders and files by 
 - **index.js** — main entry point for the server
 
 ### 🔀 Git Workflow
-How to initialize a Git repository, create a `.gitignore` to exclude `node_modules`, commit changes regularly, and push to GitHub — including how to remove accidentally tracked files with `git rm -r --cached`.
+
+How to initialize a Git repository, create a `.gitignore` to exclude `node_modules`, commit changes regularly, and push to GitHub, also including how to remove accidentally tracked files with `git rm -r --cached`.
 
 ## How can it be improved?
 
@@ -89,26 +98,31 @@ How to initialize a Git repository, create a `.gitignore` to exclude `node_modul
 Make sure you have **Node.js** and **MongoDB** installed and running locally.
 
 1. Clone the repository:
+
    ```
    git clone https://github.com/TarekM-7/ForzaAutos.git
    ```
 
 2. Navigate to the project folder:
+
    ```
    cd ForzaAutos
    ```
 
 3. Install dependencies:
+
    ```
    npm install
    ```
 
 4. Seed the database:
+
    ```
    node seeds/index.js
    ```
 
 5. Start the server:
+
    ```
    node index.js
    ```
