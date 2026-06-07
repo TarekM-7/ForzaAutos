@@ -1,14 +1,18 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
 .hero {
     background-image: linear-gradient(
                         to bottom,
                         rgba(0,0,0,0.8) 0%,
-                        rgba(0,0,0,0.1) 15%,
-                        rgba(0,0,0,0.1) 60%,
+                        rgba(0,0,0,0.1) 10%,
+                        rgba(0,0,0,0.1) 90%,
                         rgba(0,0,0,0.9) 100%
                       ), url('/images/banner-fh6.jpg');
     background-size: cover;
     background-position: bottom;
-    height: 600px;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,8 +21,18 @@
     color: white;
 }
 
+.hero .hero-header {
+    background-color: linear-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1) 100%);
+    font-size: 80px;
+    color: white;
+}
+
 .navbar-brand {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.navbar-brand img {
+    filter: invert(1);
 }

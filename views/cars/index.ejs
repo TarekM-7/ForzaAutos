@@ -2,7 +2,8 @@
 
 <div class="hero">
   <div class="hero-content">
-    <h1>Find Your Car</h1>
+    <h1 class="hero-header">Find Your Car</h1>
+    <button class="btn btn-dark">Go!</button>
   </div>
 </div>
 <div class="container mt-3">
@@ -14,9 +15,6 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= car.name %></h5>
                     <p class="card-text"><%= car.brand %></p>
-                    <p class="card-text"><%= car.country %></p>
-                    <p class="card-text"><%= (car.price * 1000).toLocaleString() %> CR</p>
-                    <p class="card-text"><%= car.carClass %></p>
                     <p class="card-text"><%= car.carClassLetter %></p>
                     <a href="/cars/<%= car._id %>" class="btn btn-dark">View Car</a>
                 </div>
