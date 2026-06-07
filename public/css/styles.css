@@ -1,0 +1,24 @@
+.hero {
+    background-image: linear-gradient(
+                        to bottom,
+                        rgba(0,0,0,0.8) 0%,
+                        rgba(0,0,0,0.1) 15%,
+                        rgba(0,0,0,0.1) 60%,
+                        rgba(0,0,0,0.9) 100%
+                      ), url('/images/banner-fh6.jpg');
+    background-size: cover;
+    background-position: bottom;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
