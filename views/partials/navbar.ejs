@@ -1,6 +1,11 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+<nav
+  class="navbar navbar-expand-lg navbar-dark position-absolute w-100 <%= locals.solidNav ? 'bg-dark' : '' %>"
+>
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">ForzaAutos</a>
+    <a class="navbar-brand" href="/">
+      <img src="/images/Forza_logo_2020.svg" alt="forza-logo" width="60px" />
+      Autos
+    </a>
     <button
       class="navbar-toggler"
       type="button"

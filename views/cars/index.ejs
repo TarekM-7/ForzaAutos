@@ -1,7 +1,12 @@
 <% layout('/layouts/boilerplate')%>
 
-
-<div class="container">
+<div class="hero">
+  <div class="hero-content">
+    <h1 class="hero-header">Find Your Car</h1>
+    <a href="#cars" class="btn btn-outline-light btn-lg mt-3">Browse Cars</a>
+  </div>
+</div>
+<div class="container mt-3" id="cars">
     <div class="row">
         <% for(let car of autos){ %>
         <div class="col-lg-4 col-sm-6 col-12 mb-4">
@@ -10,9 +15,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= car.name %></h5>
                     <p class="card-text"><%= car.brand %></p>
-                    <p class="card-text"><%= car.country %></p>
-                    <p class="card-text"><%= (car.price * 1000).toLocaleString() %> CR</p>
-                    <p class="card-text"><%= car.carClass %></p>
+                    <p class="card-text"><%= car.carClassLetter %></p>
                     <a href="/cars/<%= car._id %>" class="btn btn-dark">View Car</a>
                 </div>
             </div>
