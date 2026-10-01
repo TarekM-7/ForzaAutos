@@ -60,18 +60,21 @@ app.post('/cars', validateAuto, catchAsync(async (req, res) => {
 app.get('/cars/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const car = await Auto.findById(id)
+    if (!car) throw new ExpressError('Car not found', 404);
     res.render('cars/show', { car })
 }));
 
 app.get('/cars/:id/edit', catchAsync(async (req, res) => {
     const { id } = req.params;
     const car = await Auto.findById(id)
+    if (!car) throw new ExpressError('Car not found', 404);
     res.render('cars/edit', { car })
 }));
 
 app.put('/cars/:id', validateAuto, catchAsync(async (req, res) => {
     const { id } = req.params;
     const car = await Auto.findByIdAndUpdate(id, req.body, { runValidators: true, returnDocument: 'after' });
+    if (!car) throw new ExpressError('Car not found', 404);
     res.redirect(`/cars/${car._id}`)
 }));
 
@@ -86,6 +89,7 @@ app.all('/{*path}', (req, res, next) => {
 })
 
 app.use((err, req, res, next) => {
+    if (err.name === 'CastError') err = new ExpressError('Car not found', 404);
     const { statusCode = 500 } = err;
     if(!err.message) err.message = 'Oh no, something went wrong!';
     res.status(statusCode).render('error', { err })
