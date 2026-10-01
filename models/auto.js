@@ -36,7 +36,6 @@ autoSchema.virtual('carClassLetter').get(function() {
     if (pi <= 800) return 'A';
     if (pi <= 900) return 'S1';
     if (pi <= 998) return 'S2';
-    if (pi = 999) return 'R';
     return 'X';
 });
 
